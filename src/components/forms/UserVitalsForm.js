@@ -4,6 +4,7 @@ import { Field, reduxForm } from "redux-form";
 import HeightAndWeightSwitcher from "./HeightAndWeightSwitcher";
 import AgeEntry from "./AgeEntry";
 import GenderEntry from "./GenderEntry";
+import ActivityEstimate from "./ActivityEstimate";
 
 //use these components if we want to display error messages
 import renderInputField from "./helpers/renderInputField";
@@ -38,6 +39,16 @@ class ContactForm extends Component {
     const { handleSubmit } = this.props;
     const { measurementSystem } = this.state;
 
+    // return (
+    //   <form>
+    //     <div style={{ width: "300px", height: "400px" }}>
+    //       <ActivityEstimate
+    //         initialValue={this.props.initialValues["activity estimate"]}
+    //       />
+    //     </div>
+    //   </form>
+    // );
+
     return (
       <form onSubmit={handleSubmit}>
         <div>
@@ -58,18 +69,12 @@ class ContactForm extends Component {
               metricFieldNames={metricFieldNames}
             />
           </div>
+        </div>
 
-          <div>
-            <label>
-              <Field
-                name="activity estimate"
-                component="input"
-                type="range"
-                min="1"
-                max="5"
-              />Activity Estimate
-            </label>
-          </div>
+        <div>
+          <ActivityEstimate
+            initialValue={this.props.initialValues["activity estimate"]}
+          />
         </div>
 
         <AgeEntry />

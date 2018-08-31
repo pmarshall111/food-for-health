@@ -1,0 +1,57 @@
+* {
+  outline: 1px solid black;
+}
+
+:root {
+  --input-width: 80%;
+  --input-height: 20%;
+}
+
+.activity-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.activity-input-container {
+  height: 200%;
+  width: 100%;
+  display: grid;
+  position: relative;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+}
+
+.activity-ticks-container {
+  position: relative;
+  top: -50%;
+  width: var(--input-width);
+  height: var(--input-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.activity-tick {
+  height: 30%;
+  width: 5%;
+  min-height: 30px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"] {
+  width: var(--input-width);
+  height: var(--input-height);
+  outline: none;
+}
+
+.activity-tick.above-or-equal {
+  background: blue;
+}
+
+.activity-tick.current-tick {
+  height: calc(30% + 10px);
+  min-height: 40px;
+}

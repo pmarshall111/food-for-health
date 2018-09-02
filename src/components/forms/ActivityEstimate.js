@@ -10,14 +10,10 @@ class ActivityEstimate extends Component {
       { title: "Sedentary", desc: "Little to no exercise" },
       { title: "Lightly Active", desc: "Excercise/sports 1-3 times per week" },
       {
-        title: "Moderately Active",
+        title: "Active",
         desc: "Exercise/sports 3-5 times per week"
       },
-      { title: "Very Active", desc: "Hard exercise/sports 6-7 times per week" },
-      {
-        title: "Extra Active",
-        desc: "Very hard exercise/sports or physical job"
-      }
+      { title: "Very Active", desc: "Hard exercise/sports 6-7 times per week" }
     ];
 
     this.ticks = [];
@@ -74,6 +70,11 @@ class ActivityEstimate extends Component {
       currTick.classList.remove("current-tick");
       if (i == currPosition) currTick.classList.add("current-tick");
     }
+
+    //updating info text
+    const info = document.querySelector(".activity-info");
+
+    info.textContent = this.activityLevels[currPosition - 1].desc;
   }
 
   render() {
@@ -97,7 +98,7 @@ class ActivityEstimate extends Component {
             component="input"
             type="range"
             min="1"
-            max="5"
+            max={this.activityLevels.length}
             onChange={e => this.onChange(e)}
           />
           <div className="activity-ticks-container">{ticks}</div>

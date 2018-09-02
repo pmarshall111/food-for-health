@@ -1,12 +1,19 @@
 import React, { Component } from "react";
+
 import UserVitalsForm from "./forms/UserVitalsForm";
+import CalorieEstimate from "./CalorieEstimate";
 
 class UserVitals extends Component {
   onSubmit(vals) {
     console.log(vals);
   }
   render() {
-    return <UserVitalsForm onSubmit={this.onSubmit} />;
+    return (
+      <div>
+        <UserVitalsForm onSubmit={this.onSubmit} />
+        <CalorieEstimate />
+      </div>
+    );
   }
 }
 

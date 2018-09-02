@@ -88,7 +88,7 @@ class ContactForm extends Component {
     let newSystem = e.target.value;
 
     let currentVals = Array.from(e.target.nextSibling.children).map(x => {
-      return Array.from(x.children).map(y => y.value);
+      return Array.from(x.children[0].children[1].children).map(y => y.value);
     });
 
     let convertedValues = currentVals
@@ -104,8 +104,6 @@ class ContactForm extends Component {
       .reduce((t, c) => t.concat(c), []);
     //^ flattening array after to make it easier to update state
 
-    // console.log({ currentVals, convertedValues });
-
     convertedValues.forEach((measurement, idx) => {
       //updating state
       this.props.change(
@@ -113,6 +111,16 @@ class ContactForm extends Component {
           ? imperialFieldNames[idx]
           : metricFieldNames[idx],
         measurement
+      );
+    });
+
+    //resetting hidden vals so that when we come to calc the calories, we know which measuremnt system has the updated values
+    currentVals.forEach((measurement, idx) => {
+      this.props.change(
+        newSystem == "imperial"
+          ? metricFieldNames[idx]
+          : imperialFieldNames[idx],
+        0
       );
     });
 

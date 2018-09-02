@@ -21,3 +21,10 @@ leave the cool howitworks thing to the end f the project.
 Presentational stuff that is statement should be left till the end.
 
 ____ this will be the end of the intro page.
+
+
+
+Tomorrow todo:
+
+- add in info section to activity Estimate
+- make the form look orderly

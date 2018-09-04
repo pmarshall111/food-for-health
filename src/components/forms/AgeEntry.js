@@ -37,14 +37,7 @@ const AgeEntry = props => {
     </option>
   );
 
-  return (
-    <div>
-      <label>
-        <Field name="age" component={renderSelectField} options={ages} />
-        Age
-      </label>
-    </div>
-  );
+  return <Field name="age" component={renderSelectField} options={ages} />;
 };
 
 export default AgeEntry;

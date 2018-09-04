@@ -1,0 +1,71 @@
+.user-vitals-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "general auth-signin"
+    "calorie-estimate manual-signin"
+    "signup-sumbit signin-submit";
+}
+
+/* Grid overall styles */
+
+.general {
+  grid-area: general;
+}
+
+.calorie-estimate {
+  grid-area: calorie-estimate;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 50% 50%;
+}
+
+.estimate {
+  grid-area: 1 / 2 / 2 / 2;
+}
+
+.signup-sumbit {
+  grid-area: signup-submit;
+}
+
+.auth-signin {
+  grid-area: auth-signin;
+}
+
+.manual-signin {
+  grid-area: manual-signin;
+}
+
+.signin-sumbit {
+  grid-area: signin-submit;
+}
+
+.halved-form-section {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 20px;
+}
+
+.halved-form-section label {
+  grid-column: 1;
+  text-align: right;
+}
+
+/* individual styles */
+
+.general,
+.manual-signin,
+.auth-signin {
+  display: grid;
+  place-items: center;
+}
+
+.signup-submit,
+.signin-submit {
+  text-align: center;
+}
+
+.signup-submit button,
+.signin-submit button {
+  width: 75%;
+}

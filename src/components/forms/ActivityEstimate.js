@@ -91,7 +91,6 @@ class ActivityEstimate extends Component {
 
     return (
       <div className="activity-container">
-        <label>Activity Estimate</label>
         <div className="activity-input-container">
           <Field
             name="activity estimate"
@@ -103,8 +102,6 @@ class ActivityEstimate extends Component {
           />
           <div className="activity-ticks-container">{ticks}</div>
         </div>
-
-        <div className="activity-info" />
       </div>
     );
   }

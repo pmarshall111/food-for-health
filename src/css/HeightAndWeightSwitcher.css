@@ -1,0 +1,18 @@
+.height-weight-switcher {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 20px;
+}
+
+.height-weight-switcher > label {
+  grid-column: 1;
+  text-align: right;
+}
+
+.height-weight-switcher > div {
+  display: flex;
+}
+
+.height-weight-switcher > div input {
+  flex: 1;
+}

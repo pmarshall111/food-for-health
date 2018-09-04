@@ -5,6 +5,11 @@ import HeightAndWeightSwitcher from "./HeightAndWeightSwitcher";
 import AgeEntry from "./AgeEntry";
 import GenderEntry from "./GenderEntry";
 import ActivityEstimate from "./ActivityEstimate";
+import NameEntry from "./NameEntry";
+import CalorieEstimate from "./CalorieEstimate";
+
+import UserManualSignIn from "./UserManualSignIn";
+import AuthSignin from "./AuthSignin";
 
 //use these components if we want to display error messages
 import renderInputField from "./helpers/renderInputField";
@@ -17,6 +22,8 @@ import {
   fromStonesToKg,
   fromKgToStones
 } from "../../helpers/convertions/weight";
+
+import "../../css/UserVitalsForm.css";
 
 //up here because we need to use it in validate function
 const imperialFieldNames = [
@@ -33,53 +40,61 @@ class ContactForm extends Component {
     this.state = {
       measurementSystem: "metric"
     };
+    this.measurementChange = this.measurementChange.bind(this);
   }
 
   render() {
     const { handleSubmit } = this.props;
     const { measurementSystem } = this.state;
 
-    // return (
-    //   <form>
-    //     <div style={{ width: "300px", height: "400px" }}>
-    //       <ActivityEstimate
-    //         initialValue={this.props.initialValues["activity estimate"]}
-    //       />
-    //     </div>
-    //   </form>
-    // );
+    //NOTE: we want to have both sides of sign up and login mirroring eachother
+    //so we need to have both login and signup parts within the same form -
+    //so display:grid will affect both.
 
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <GenderEntry />
-
-          <div>
-            <Field
-              name="measurement system"
-              component="select"
-              onChange={e => this.measurementChange(e)}
-            >
-              <option value="metric">Metric</option>
-              <option value="imperial">Imperial</option>
-            </Field>
+      <form onSubmit={handleSubmit} className="user-vitals-form">
+        <div className="general">
+          <div className=" halved-form-section">
+            <label>Name:</label>
+            <Field name="name" component={renderInputField} type="text" />
+            <label>Age:</label>
+            <AgeEntry />
+            <label>Gender:</label>
+            <GenderEntry />
+          </div>
+        </div>
+        <div className="calorie-estimate">
+          <div className="height-weight-switcher">
             <HeightAndWeightSwitcher
               measurementSystem={measurementSystem}
               imperialFieldNames={imperialFieldNames}
               metricFieldNames={metricFieldNames}
+              measurementChange={e => this.measurementChange(e)}
             />
+
+            <label>Activity Estimate</label>
+            <ActivityEstimate
+              initialValue={this.props.initialValues["activity estimate"]}
+            />
+
+            <div className="activity-info" />
+          </div>
+          <div className="estimate">
+            <CalorieEstimate />
           </div>
         </div>
-
-        <div>
-          <ActivityEstimate
-            initialValue={this.props.initialValues["activity estimate"]}
-          />
+        <div className="signup-submit">
+          <button type="submit">Submit</button>
         </div>
-
-        <AgeEntry />
-
-        <button type="submit">Submit</button>
+        <div className="auth-signin">
+          <AuthSignin />
+        </div>
+        <div className="manual-signin">
+          <UserManualSignIn />
+        </div>
+        <div className="signin-submit">
+          <button type="submit">Login</button>
+        </div>
       </form>
     );
   }
@@ -87,9 +102,21 @@ class ContactForm extends Component {
   measurementChange(e) {
     let newSystem = e.target.value;
 
-    let currentVals = Array.from(e.target.nextSibling.children).map(x => {
-      return Array.from(x.children[0].children[1].children).map(y => y.value);
-    });
+    // console.dir(e.target);
+
+    //potentially brittle code here. would be easier to hook component directly into redux state, but apparently
+    //this can seriously impact performance.
+    let currentVals = Array.from(e.target.nextSibling.children)
+      .filter(x => {
+        return x.nodeName == "DIV";
+      })
+      .map(x => Array.from(x.children).map(x => x.value));
+
+    if (currentVals.length == 4)
+      currentVals = [
+        [currentVals[0], currentVals[1]],
+        [currentVals[2], currentVals[3]]
+      ];
 
     let convertedValues = currentVals
       .map((z, idx) => {
@@ -113,6 +140,8 @@ class ContactForm extends Component {
         measurement
       );
     });
+
+    console.log({ convertedValues, currentVals, newSystem });
 
     //resetting hidden vals so that when we come to calc the calories, we know which measuremnt system has the updated values
     currentVals.forEach((measurement, idx) => {

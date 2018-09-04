@@ -1,6 +1,6 @@
-* {
+/* * {
   outline: 1px solid black;
-}
+} */
 
 :root {
   --input-width: 80%;
@@ -55,4 +55,8 @@ input[type="range"] {
 .activity-tick.current-tick {
   height: calc(30% + 10px);
   min-height: 40px;
+}
+
+.activity-info {
+  grid-column: 2;
 }

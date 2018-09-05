@@ -1,7 +1,7 @@
 import React from "react";
 import { Field } from "redux-form";
 
-import renderSelectField from "./helpers/renderSelectField";
+import renderSelectField from "../helpers/renderSelectField";
 
 const AgeEntry = props => {
   //chosen to end it at 76 as that's what this website says:

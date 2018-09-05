@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 
-import HeightAndWeightSwitcher from "./HeightAndWeightSwitcher";
-import AgeEntry from "./AgeEntry";
-import GenderEntry from "./GenderEntry";
-import ActivityEstimate from "./ActivityEstimate";
-import NameEntry from "./NameEntry";
-import CalorieEstimate from "./CalorieEstimate";
-
-import UserManualSignIn from "./UserManualSignIn";
-import AuthSignin from "./AuthSignin";
+import HeightAndWeightSwitcher from "./sub-components/HeightAndWeightSwitcher";
+import AgeEntry from "./sub-components/AgeEntry";
+import GenderEntry from "./sub-components/GenderEntry";
+import ActivityEstimate from "./sub-components/ActivityEstimate";
+import CalorieEstimate from "./sub-components/CalorieEstimate";
 
 //use these components if we want to display error messages
 import renderInputField from "./helpers/renderInputField";
@@ -23,7 +19,7 @@ import {
   fromKgToStones
 } from "../../helpers/convertions/weight";
 
-import "../../css/UserVitalsForm.css";
+import "../../css/forms/UserSignUpForm.css";
 
 //up here because we need to use it in validate function
 const imperialFieldNames = [
@@ -34,7 +30,7 @@ const imperialFieldNames = [
 ];
 const metricFieldNames = ["height cm", "weight kg"];
 
-class ContactForm extends Component {
+class UserSignUpForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,47 +49,34 @@ class ContactForm extends Component {
 
     return (
       <form onSubmit={handleSubmit} className="user-vitals-form">
-        <div className="general">
-          <div className=" halved-form-section">
-            <label>Name:</label>
-            <Field name="name" component={renderInputField} type="text" />
-            <label>Age:</label>
-            <AgeEntry />
-            <label>Gender:</label>
-            <GenderEntry />
-          </div>
+        <div className="form-inputs halved-form-section">
+          <label>Name:</label>
+          <Field name="name" component={renderInputField} type="text" />
+          <label>Age:</label>
+          <AgeEntry />
+          <label>Gender:</label>
+          <GenderEntry />
+          <HeightAndWeightSwitcher
+            measurementSystem={measurementSystem}
+            imperialFieldNames={imperialFieldNames}
+            metricFieldNames={metricFieldNames}
+            measurementChange={e => this.measurementChange(e)}
+          />
         </div>
         <div className="calorie-estimate">
-          <div className="height-weight-switcher">
-            <HeightAndWeightSwitcher
-              measurementSystem={measurementSystem}
-              imperialFieldNames={imperialFieldNames}
-              metricFieldNames={metricFieldNames}
-              measurementChange={e => this.measurementChange(e)}
-            />
-
-            <label>Activity Estimate</label>
-            <ActivityEstimate
-              initialValue={this.props.initialValues["activity estimate"]}
-            />
-
-            <div className="activity-info" />
-          </div>
           <div className="estimate">
             <CalorieEstimate />
           </div>
         </div>
+        <div className="activity-input">
+          <label>Activity Estimate</label>
+          <ActivityEstimate
+            initialValue={this.props.initialValues["activity estimate"]}
+          />
+          <div className="activity-info" />
+        </div>
         <div className="signup-submit">
           <button type="submit">Submit</button>
-        </div>
-        <div className="auth-signin">
-          <AuthSignin />
-        </div>
-        <div className="manual-signin">
-          <UserManualSignIn />
-        </div>
-        <div className="signin-submit">
-          <button type="submit">Login</button>
         </div>
       </form>
     );
@@ -217,4 +200,4 @@ export default reduxForm({
   validate,
   warn,
   initialValues
-})(ContactForm);
+})(UserSignUpForm);

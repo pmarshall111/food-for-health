@@ -1,0 +1,13 @@
+.user-sign-in {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.user-sign-in > div {
+  display: grid;
+  place-items: center;
+}
+
+.user-sign-in form button {
+  grid-column-start: 2;
+}

@@ -57,7 +57,7 @@ class Switcher extends Component {
     });
 
     return (
-      <div className="switcher-container">
+      <div className="switcher-container-non-clash-classname">
         <div className="background" />
         {optionDivs}
       </div>

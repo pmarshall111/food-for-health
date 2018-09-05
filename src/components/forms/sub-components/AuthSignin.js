@@ -1,9 +1,9 @@
 import React from "react";
 
-import OauthButton from "../oauthButtons/OauthButton";
+import OauthButton from "../../OauthButton";
 
-import "../../css/oauthButtons/generalStyles.css";
-import "../../css/oauthButtons/Google.css";
+import "../../../css/oauthButtons/generalStyles.css";
+import "../../../css/oauthButtons/Google.css";
 
 //idea that instead of each having buttons, we could just have a component that's like a slideshow,
 //then the as the user hovers over each icon, it will change a button underneath to be the button for

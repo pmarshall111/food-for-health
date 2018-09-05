@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { Field, reduxForm } from "redux-form";
 
-import renderInputField from "./helpers/renderInputField";
+import renderInputField from "../helpers/renderInputField";
 
-import "../../css/HeightAndWeightSwitcher.css";
+import "../../../css/forms/HeightAndWeightSwitcher.css";
 
 const HeightAndWeightSwitcher = props => {
   const {

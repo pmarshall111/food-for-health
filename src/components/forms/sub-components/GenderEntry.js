@@ -1,9 +1,9 @@
 import React from "react";
 import { Field } from "redux-form";
 
-import renderInputField from "./helpers/renderInputField";
+import renderInputField from "../helpers/renderInputField";
 
-import "../../css/GenderEntry.css";
+import "../../../css/GenderEntry.css";
 
 const GenderEntry = props => {
   return (

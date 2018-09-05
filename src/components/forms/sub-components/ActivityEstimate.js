@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
 
-import "../../css/ActivityEstimate.css";
+import "../../../css/forms/ActivityEstimate.css";
 
 class ActivityEstimate extends Component {
   constructor(props) {

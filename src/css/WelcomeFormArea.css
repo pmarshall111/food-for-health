@@ -1,0 +1,14 @@
+.welcome-form-area {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.form-area {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.switcher-container {
+  display: grid;
+  place-items: center;
+}

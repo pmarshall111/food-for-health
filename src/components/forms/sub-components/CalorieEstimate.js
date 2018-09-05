@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getFormValues } from "redux-form";
 
 import {
   maleFormulas,
   femaleFormulas
-} from "../../helpers/calorieEstimateFormulas";
-import { fromFeetToMeters } from "../../helpers/convertions/height";
-import { fromStonesToKg } from "../../helpers/convertions/weight";
-import calcBMI from "../../helpers/bmiCalculator";
+} from "../../../helpers/calorieEstimateFormulas";
+import { fromFeetToMeters } from "../../../helpers/convertions/height";
+import { fromStonesToKg } from "../../../helpers/convertions/weight";
+import calcBMI from "../../../helpers/bmiCalculator";
 
-import "../../css/CalorieEstimate.css";
+import "../../../css/forms/CalorieEstimate.css";
 
 //need to import form state
 
@@ -27,10 +27,10 @@ class CalorieEstimate extends Component {
   render() {
     this.updateCalorieFigure();
     return (
-      <Fragment>
+      <div>
         <h3>Your daily calorie estimate:</h3>
         <h4>{this.kCalPerDay || "N/A"}</h4>
-      </Fragment>
+      </div>
     );
   }
 

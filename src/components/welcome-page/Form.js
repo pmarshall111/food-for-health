@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import UserSignUpForm from "./forms/UserSignUpForm";
-import UserSignInForm from "./forms/UserSignInForm";
+import UserSignUpForm from "../forms/UserSignUpForm";
+import UserSignInForm from "../forms/UserSignInForm";
 
-import Switcher from "./Switcher";
+import Switcher from "../Switcher";
 
-import "../css/WelcomeFormArea.css";
+import "../../css/WelcomeFormArea.css";
 
 class WelcomeFormArea extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class WelcomeFormArea extends Component {
       );
 
     return (
-      <div className="welcome-form-area">
+      <section className="welcome-form-area">
         <div>Ready to go?! I sure smS</div>
         <div className="form-area">
           <div className="switcher-container">
@@ -51,7 +51,7 @@ class WelcomeFormArea extends Component {
           </div>
           {formToDisplay}
         </div>
-      </div>
+      </section>
     );
   }
 }

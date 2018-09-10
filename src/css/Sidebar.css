@@ -1,0 +1,50 @@
+:root {
+  --rhs-icons-width: 75px
+}
+
+.sidebar-container {
+  display: grid;
+  grid-template-columns: var(--rhs-icons-width) 1fr;
+  transform: translateX(calc(100% - var(--rhs-icons-width)));
+  width: 20%;
+  /* min-width: 200px; */
+  position: absolute;
+  right: 10px;
+  height: 100%
+}
+
+.sidebar-container.open {
+  transform: translateX(0%);
+}
+
+.sidebar-info {
+}
+
+.control {
+  width: 100%;
+  padding-top: 100%;
+  background: green;
+}
+
+.sidebar-info > div:not(.control) {
+  width: 75%;
+  padding-top: 75%;
+  border: 2px solid blue;
+  border-left: 25% solid red;
+  float: right;
+}
+
+.content {
+  height: 100%;
+  background: brown;
+  width: 100%;
+}
+
+.circles-container {
+  /* grid-column-start: 1 */
+  position: absolute;
+  right:0;
+  right: calc(100% - 1.5 * var(--row-height) - var(--rhs-icons-width)/2);
+  top: 50%;
+  transform: translateY(-50%)
+}

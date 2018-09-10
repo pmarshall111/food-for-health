@@ -1,0 +1,8 @@
+.width-limit {
+  display: grid;
+  grid-template-columns: 1fr 70% 1fr;
+}
+
+.width-limit > * {
+  grid-column: 2 / span 1;
+}

@@ -1,0 +1,54 @@
+.nav-container {
+  position: fixed;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.7;
+  grid-template-rows: auto 1fr;
+}
+
+.sides-container {
+  pointer-events: none;
+  position: relative
+}
+
+.sides-container * {
+  pointer-events: auto
+}
+
+nav {
+  grid-area: 1 / 1/ span 1 / -1;
+  background: red;
+  text-align: center;
+}
+
+.side-nav {
+  transform: translateX(-100%);
+  border: 1px solid black;
+  min-width: 200px;
+  /* 15% is to match the width of the sidebar on the other side */
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%
+}
+
+.side-nav div:first-child {
+  flex: 1;
+}
+
+.side-nav.open {
+  transform: translateX(0);
+}
+
+.menu-option {
+  padding: 1em;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px;
+}

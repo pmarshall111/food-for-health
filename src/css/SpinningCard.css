@@ -1,0 +1,128 @@
+:root {
+  --card-depth: 0.25em;
+  --turn-time: 0.75s;
+  --sticky-turn: 0.5s;
+}
+
+.shape,
+.face {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.scene {
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  perspective: 1200px;
+  position: relative;
+}
+.shape {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 50%;
+  transition: all var(--turn-time);
+  transition-delay: var(--sticky-turn);
+}
+.scene:hover .shape {
+  transform: rotateY(180deg);
+  transition-delay: 0s;
+}
+.scene:hover .ft .circle {
+  transform: translate(10%, -130%) scale(0.3);
+  transition-delay: 0s;
+}
+.scene:hover .bk .circle {
+  transform: translate(-110%, -130%) scale(0.3);
+  transition-delay: 0s;
+}
+.face {
+  overflow: hidden;
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  /* hidden by default, prevent blinking and other weird rendering glitchs */
+}
+.face {
+  background-size: 100% 100% !important;
+  background-position: center;
+}
+.ft,
+.bk {
+  width: 100%;
+  height: 100%;
+}
+.bk {
+  left: 100%;
+}
+
+.card {
+  transform: translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg)
+    rotateZ(0deg);
+  opacity: 1;
+  width: 4em;
+  height: 5em;
+  margin: -2.5em 0 0 -2em;
+}
+.card .ft {
+  transform: translateZ(calc(var(--card-depth) / 2));
+}
+.card .bk {
+  transform: translateZ(calc(var(--card-depth) / -2)) rotateY(180deg);
+}
+
+.card .circle {
+  width: 2em;
+  height: 2em;
+  background: blue;
+  border-radius: 50%;
+  border: 0.25em solid skyblue;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all calc(var(--turn-time)/2);
+  transition-delay: var(--sticky-turn);
+}
+
+.ft h5,
+.bk h5 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.bk {
+  display: grid;
+  grid-template-rows: auto 40% 1fr;
+  place-items: center;
+  padding: 0.25em;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.bk img {
+  width: 100%;
+  height: 100%;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  padding: 0.05em;
+  background: url("https://image.freepik.com/free-photo/cute-cat-picture_1122-449.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.bk h3 {
+  font-size: 0.3em;
+  text-align: right;
+  width: 100%;
+  padding: 0;
+  /*   margin: 0.25em 0em 2em 5em; */
+  margin: 0.25em 0 0.5em 0;
+}
+
+.bk p {
+  font-size: 1rem;
+}

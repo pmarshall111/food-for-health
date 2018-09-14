@@ -18,10 +18,10 @@
   width: 100%;
   display: grid;
   place-items: center;
-  cursor: pointer
+  cursor: pointer;
 }
 
-.circle {
+.circles-container .circle {
   height: 0;
   width: 35%;
   padding-bottom: 35%;

@@ -1,30 +1,12 @@
-Add in redux form to project.
-
-Connect up to state
-start creating add info form
-
-have a button at the bottom to get started - which could either open a popup to ask if the user wants to save
-their details, or we could have a button before the get started button that will enable the user to do it there
-
-right now I'm in favour of the popup idea as that will probably get more users to sign up and be repeat users.
-
-_____
-
-get a boilerplate navbar component and edit it to our liking.
-
-Add a scroll down component that once clicked has the arrow turn upside down and makes the page scroll
-either up or down depending on which way the arrow is pointing.
-
-find a few pictures to be the background of these pages
-
-leave the cool howitworks thing to the end f the project.
-Presentational stuff that is statement should be left till the end.
-
-____ this will be the end of the intro page.
+overall: get proper idea of what you want home page to look like
 
 
 
-Tomorrow todo:
 
-- add in info section to activity Estimate
-- make the form look orderly
+
+SOLID TODO:
+
+- make it so the navbar comes in when scrolled off the title page.
+- Add title to form Component
+
+FRONT PAGE THEN DONE FOR NOW.

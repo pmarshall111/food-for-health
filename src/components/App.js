@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 // import Navbar from "./Navbar";
 import CustomNavbar from "./CustomNavbar";
-import WelcomePage from "./WelcomePage"
+import WelcomePage from "./WelcomePage";
 import PageSection from "./PageSection";
 
 import withLimitedWidth from "../hoc/withLimitedWidth";
+
+import StartingPage from "./welcome-page/TitlePage";
 
 class App extends Component {
   render() {
@@ -17,8 +19,8 @@ class App extends Component {
     //   </div>
     // );
 
-    const LimitedWelcome = withLimitedWidth(WelcomePage)
-
+    const LimitedWelcome = withLimitedWidth(WelcomePage);
+    // return <StartingPage />
 
     return (
       <div className="App">

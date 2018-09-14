@@ -22,7 +22,7 @@ class Navbar extends Component {
       });
 
     return (
-      <div className="nav-container">
+      <div className="nav-container on-title">
         <nav>
           <MenuButton
             onClick={() => {
@@ -32,11 +32,11 @@ class Navbar extends Component {
           <h1>{title}</h1>
         </nav>
         <div className="sides-container">
-        <div className="side-nav">
-          <div>{menuItemDivs}</div>
-          <div>{endItemDivs}</div>
-        </div>
-        <Sidebar />
+          <div className="side-nav">
+            <div>{menuItemDivs}</div>
+            <div>{endItemDivs}</div>
+          </div>
+          <Sidebar />
         </div>
       </div>
     );

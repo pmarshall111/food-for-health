@@ -1,0 +1,60 @@
+/* unsure if we really need this div. need testing */
+
+.down-arrow-container {
+  width: 25%;
+  margin: 10%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.arr-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 30% 30% 20%;
+  place-items: center;
+  background: rgab(0, 0, 0, 0.3);
+}
+
+.arr {
+  background: black;
+  width: 20%;
+  padding-bottom: 160%;
+}
+
+.arr-left {
+  grid-column-start: 2;
+  transform: rotate(-45deg);
+}
+.arr-right {
+  transform: rotate(45deg);
+}
+
+.square {
+  position: absolute;
+  width: 90%;
+  padding-top: 90%;
+  border: 5px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.down-arrow-container:hover .arr-container {
+  animation: bounce 0.3s ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,12 +1,30 @@
 .welcome-form-area {
+  min-height: calc(100vh - var(--section-top-margin));
+  margin-top: var(--section-top-margin);
+  box-sizing: border-box;
+
   display: grid;
-  grid-template-columns: 40% 60%;
-  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+}
+
+.welcome-form-area > div:first-child {
+  display: flex;
+}
+
+.welcome-form-area h2 {
+  flex: 1;
 }
 
 .form-area {
   display: grid;
+  place-items: center;
+  border: 3px solid black;
+}
+
+.form-area > div {
+  display: grid;
   grid-template-rows: auto 1fr;
+  padding: 1em;
 }
 
 .switcher-container {

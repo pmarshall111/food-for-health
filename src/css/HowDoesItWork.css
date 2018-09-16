@@ -1,8 +1,13 @@
+:root {
+  --section-top-margin: 75px;
+}
+
 .how-it-works {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--section-top-margin));
   display: grid;
   grid-template-rows: 30% 1fr 10%;
   place-items: center;
+  margin-top: var(--section-top-margin);
 }
 
 .card-container {

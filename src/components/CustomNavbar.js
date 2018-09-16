@@ -6,6 +6,28 @@ import Sidebar from "./Sidebar";
 import "../css/CustomNavbar.css";
 
 class Navbar extends Component {
+  componentDidMount() {
+    window.addEventListener("scroll", this.addRemoveNav);
+    this.addRemoveNav();
+  }
+
+  addRemoveNav() {
+    let scrollAmount =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    let navContainer = document.querySelector(".nav-container");
+    let titlePage = document.querySelector(".title-page");
+    if (!titlePage)
+      return navContainer.classList.remove("on-title", "homepage");
+
+    let { height } = titlePage.getBoundingClientRect();
+
+    if (scrollAmount > 3 * height / 4)
+      navContainer.classList.remove("on-title");
+    else if (!navContainer.classList.contains("on-title"))
+      navContainer.classList.add("on-title");
+  }
+
   render() {
     const { menuItems, endItems, title } = this.props;
 
@@ -22,7 +44,7 @@ class Navbar extends Component {
       });
 
     return (
-      <div className="nav-container on-title">
+      <div className="nav-container on-title homepage">
         <nav>
           <MenuButton
             onClick={() => {

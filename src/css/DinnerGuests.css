@@ -1,0 +1,8 @@
+.dinner-guests > div:first-child {
+  display: flex;
+  flex-direction: row;
+}
+
+.dinner-guests > div:first-child h2 {
+  font-size: 5em;
+}

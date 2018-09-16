@@ -44,12 +44,14 @@ class WelcomeFormArea extends Component {
 
     return (
       <section className="welcome-form-area">
-        <div>Ready to go?! I sure smS</div>
-        <div className="form-area">
+        <div>
+          <h2>Get Started</h2>
           <div className="switcher-container">
             <Switcher options={this.options} />
           </div>
-          {formToDisplay}
+        </div>
+        <div className="form-area">
+          <div>{formToDisplay}</div>
         </div>
       </section>
     );

@@ -1,8 +1,9 @@
 .what-is-it {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--section-top-margin));
   display: grid;
   grid-template-columns: 40% 60%;
   place-items: center;
+  margin-top: var(--section-top-margin);
 }
 
 .what-is-it .info {

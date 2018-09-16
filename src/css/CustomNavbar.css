@@ -1,3 +1,7 @@
+:root {
+  --nav-trans: 0.3s;
+}
+
 .nav-container {
   position: fixed;
   display: grid;
@@ -6,6 +10,7 @@
   opacity: 0.7;
   grid-template-rows: auto 1fr;
   pointer-events: none;
+  z-index: 1000;
 }
 
 .sides-container {
@@ -21,6 +26,7 @@ nav {
   background: red;
   text-align: center;
   pointer-events: auto;
+  transition: all var(--nav-trans);
 }
 
 .nav-container.on-title nav {
@@ -31,7 +37,7 @@ nav {
 }
 
 .side-nav {
-  transform: translateX(-100%);
+  transform: translateX(-110%);
   border: 1px solid black;
   min-width: 200px;
   /* 15% is to match the width of the sidebar on the other side */
@@ -42,6 +48,7 @@ nav {
   top: 0;
   left: 0;
   height: 100%;
+  transition: all var(--nav-trans);
 }
 
 .side-nav div:first-child {

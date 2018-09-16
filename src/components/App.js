@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import Navbar from "./Navbar";
 import CustomNavbar from "./CustomNavbar";
 import WelcomePage from "./WelcomePage";
-import PageSection from "./PageSection";
+import DinnerGuests from "./DinnerGuests";
 
 import withLimitedWidth from "../hoc/withLimitedWidth";
 
@@ -20,6 +20,7 @@ class App extends Component {
     // );
 
     const LimitedWelcome = withLimitedWidth(WelcomePage);
+    const LimitedDinner = withLimitedWidth(DinnerGuests);
     // return <StartingPage />
 
     return (
@@ -34,7 +35,7 @@ class App extends Component {
           ]}
           endItems={[{ desc: "Log out" }]}
         />
-        <LimitedWelcome />
+        <LimitedDinner />
       </div>
     );
   }

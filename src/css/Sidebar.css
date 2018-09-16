@@ -11,13 +11,15 @@
   position: absolute;
   right: 10px;
   height: 100%;
+  transition: all var(--nav-trans);
 }
 
 .sidebar-container.open {
   transform: translateX(0%);
 }
 
-.nav-container.on-title .sidebar-container {
+.nav-container.on-title .sidebar-container,
+.nav-container.homepage .sidebar-container {
   transform: translateX(100%);
 }
 
@@ -51,8 +53,10 @@
   right: calc(100% - 1.5 * var(--row-height) - var(--rhs-icons-width)/2);
   top: 50%;
   transform: translateY(-50%);
+  transition: all var(--nav-trans);
 }
 
-.nav-container.on-title .circles-container {
+.nav-container.on-title .circles-container,
+.nav-container.homepage .circles-container {
   transform: translateY(-50%) translateX(calc(var(--rhs-icons-width) * -1));
 }

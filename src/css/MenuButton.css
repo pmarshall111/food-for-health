@@ -1,5 +1,9 @@
+:root {
+  --menu-colour: #666;
+}
+
 .menu-link {
-  color: #fff;
+  color: var(--menu-colour);
   display: inline-block;
   font-size: 1.125rem;
   text-transform: uppercase;
@@ -7,10 +11,11 @@
   position: absolute;
   left: 20px;
   top: 40px;
+  transition: all var(--nav-trans);
 }
 .menu-link:before {
   content: "";
-  background: #fff;
+  background: var(--menu-colour);
   height: 4px;
   width: 40px;
   position: absolute;
@@ -26,7 +31,7 @@
 }
 .menu-link:after {
   content: "";
-  background: #fff;
+  background: var(--menu-colour);
   height: 4px;
   width: 40px;
   position: absolute;

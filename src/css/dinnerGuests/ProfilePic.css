@@ -1,0 +1,18 @@
+.profile-pic {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.profile-pic > div {
+  height: 75%;
+  padding-left: 75%;
+  border-radius: 50%;
+  border: 5px skyblue;
+  background-size: cover;
+  background-position: center center;
+}
+
+.profile-pic > h5 {
+  flex: 1;
+}
